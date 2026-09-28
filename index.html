@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rida</title>
+    <!-- Importing Multiple Stylish Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Orbitron:wght@700&family=Playfair+Display:ital,wght@1,700&family=Montserrat:wght@500;700&family=Caveat:wght@700&family=Reem+Kufi:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 7-Color Rainbow Glowing Heading Animation */
+        .rainbow-glow-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            margin-bottom: 5px;
+            animation: rainbowGlow 6s linear infinite;
+        }
+        @keyframes rainbowGlow {
+            0%   { color: #ff3366; text-shadow: 0 0 15px #ff3366, 0 0 30px #ff3366; }
+            14%  { color: #ff9900; text-shadow: 0 0 15px #ff9900, 0 0 30px #ff9900; }
+            28%  { color: #ffff00; text-shadow: 0 0 15px #ffff00, 0 0 30px #ffff00; }
+            42%  { color: #33cc33; text-shadow: 0 0 15px #33cc33, 0 0 30px #33cc33; }
+            57%  { color: #00ffff; text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; }
+            71%  { color: #3366ff; text-shadow: 0 0 15px #3366ff, 0 0 30px #3366ff; }
+            85%  { color: #cc33ff; text-shadow: 0 0 15px #cc33ff, 0 0 30px #cc33ff; }
+            100% { color: #ff3366; text-shadow: 0 0 15px #ff3366, 0 0 30px #ff3366; }
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: rainbowGlow 6s linear infinite;
+        }
+
+        /* Countdown Timer Box Styles */
+        #countdown-container {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+        .countdown-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: rainbowGlow 6s linear infinite;
+        }
+        .timer-digits {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 12px;
+            min-width: 60px;
+            animation: rainbowGlow 6s linear infinite;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .time-label {
+            font-size: 0.7rem;
+            display: block;
+            color: #ccc;
+            margin-top: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Main Content hidden until countdown ends */
+        #main-content {
+            display: none;
+        }
+
+        .card {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 22px;
+            border-radius: 18px;
+            margin: 15px 0;
+            font-size: 1.25rem;
+            line-height: 2;
+            border: 1px dashed rgba(255,255,255,0.4);
+            color: #ffebf0;
+        }
+
+        /* Special Message Section */
+        .special-msg-box {
+            background: rgba(20, 10, 30, 0.7);
+            padding: 25px;
+            border-radius: 18px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 100, 150, 0.4);
+            text-align: right;
+            min-height: 180px;
+            position: relative;
+        }
+        .special-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 15px;
+            animation: rainbowGlow 6s linear infinite;
+        }
+        .special-content {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            color: #ffd9e8;
+            min-height: 100px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .step-btn {
+            background: linear-gradient(45deg, #ff3366, #ff6b8b);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            transition: 0.2s;
+        }
+        .step-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #smileBtn {
+            position: relative;
+            background: linear-gradient(45deg, #00cc66, #33cc33);
+            transition: 0.1s ease;
+        }
+
+        .cake-box, .balloon-box {
+            background: rgba(0,0,0,0.35);
+            padding: 22px;
+            border-radius: 18px;
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cake-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.2rem;
+            animation: rainbowGlow 6s linear infinite;
+        }
+
+        .balloon-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            animation: rainbowGlow 6s linear infinite;
+            margin-bottom: 5px;
+        }
+
+        /* 3D Styled Big Interactive Cake */
+        .big-cake-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: 0.3s;
+        }
+        .big-cake-container:hover {
+            transform: scale(1.05);
+        }
+        .candles {
+            display: flex;
+            gap: 15px;
+            margin-bottom: -5px;
+            z-index: 2;
+        }
+        .candle {
+            width: 10px;
+            height: 35px;
+            background: linear-gradient(to top, #ffcc00, #ff3366);
+            border-radius: 5px;
+            position: relative;
+        }
+        .flame {
+            width: 12px;
+            height: 18px;
+            background: #ff9900;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -18px;
+            left: -1px;
+            animation: flicker 0.6s infinite alternate;
+            box-shadow: 0 0 10px #ff9900, 0 0 20px #ff3300;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 0.9; }
+            100% { transform: scale(1.15); opacity: 1; }
+        }
+        .cake-layer {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        .layer-top {
+            width: 140px;
+            height: 45px;
+            background: linear-gradient(135deg, #33ccff, #0073e6);
+            border-bottom: 4px dashed rgba(255,255,255,0.6);
+        }
+        .layer-middle {
+            width: 190px;
+            height: 50px;
+            background: linear-gradient(135deg, #0073e6, #004080);
+            border-bottom: 4px dashed rgba(255,255,255,0.6);
+        }
+        .layer-bottom {
+            width: 240px;
+            height: 60px;
+            background: linear-gradient(135deg, #004080, #002040);
+        }
+
+        .balloon-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .balloon {
+            transition: transform 0.3s;
+        }
+        .balloon:hover {
+            transform: scale(1.25);
+        }
+        .footer-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-top: 25px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Main Title with 7-Color Rainbow Glow -->
+        <h1 class="rainbow-glow-title">Happy Birthday Rida</h1>
+        <div class="subtitle">✨ Waiting For 6th October ✨</div>
+
+        <!-- COUNTDOWN TIMER SECTION -->
+        <div id="countdown-container">
+            <div class="countdown-title">⏳ Birthday Countdown ⏳</div>
+            <div class="timer-digits">
+                <div class="time-box"><span id="days">00</span><span class="time-label">Days</span></div>
+                <div class="time-box"><span id="hours">00</span><span class="time-label">Hours</span></div>
+                <div class="time-box"><span id="minutes">00</span><span class="time-label">Mins</span></div>
+                <div class="time-box"><span id="seconds">00</span><span class="time-label">Secs</span></div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT (Appears automatically after countdown finishes) -->
+        <div id="main-content">
+            <!-- Big Interactive Styled Cake Section -->
+            <div class="cake-box">
+                <h3 class="cake-title">🎂 Cake Cutting Ceremony</h3>
+                <p style="font-size: 0.95rem; color: #ddd; font-family: 'Montserrat', sans-serif;">Neeche diye gaye cake par click karke cut karein!</p>
+                
+                <div class="big-cake-container" onclick="cutCake()">
+                    <div class="candles">
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                        <div class="candle"><div class="flame"></div></div>
+                    </div>
+                    <div class="cake-layer layer-top"></div>
+                    <div class="cake-layer layer-middle"></div>
+                    <div class="cake-layer layer-bottom"></div>
+                </div>
+
+                <p id="cakeMessage" style="font-weight: 700; margin-top: 12px; color: #ccffcc; font-size: 1.1rem; font-family: 'Montserrat', sans-serif;"></p>
+            </div>
+
+            <!-- Balloon Popping Game -->
+            <div class="balloon-box">
+                <div class="balloon-title">🎈 Balloon Popping Fun</div>
+                <p style="font-size: 0.95rem; color: #ddd; font-family: 'Montserrat', sans-serif;">Balloons par click karke unhein phorein aur messages dekhein:</p>
+                <div class="balloon-container">
+                    <span class="balloon" onclick="popBalloon(this, 'Balloon 1: Stay happy and keep smiling always! 😊')">🎈</span>
+                    <span class="balloon" onclick="popBalloon(this, 'Balloon 2: Wishing you great success in everything! 🚀')">🎈</span>
+                    <span class="balloon" onclick="popBalloon(this, 'Balloon 3: Have a wonderful day ahead! 🍰')">🎈</span>
+                </div>
+                <p id="balloonMessage" style="font-weight: 700; margin-top: 12px; color: #ccffcc; font-size: 1.1rem; font-family: 'Montserrat', sans-serif;"></p>
+            </div>
+
+            <!-- SPECIAL MESSAGE SECTION WITH NEXT/BACK & RUNAWAY SMILE BUTTON -->
+            <div class="special-msg-box">
+                <div class="special-title">SPICAL MESAGE 😌✉️📬</div>
+                <div id="msgContent" class="special-content"></div>
+                <div class="nav-buttons">
+                    <button class="step-btn" id="prevBtn" onclick="prevStep()">Peeche (Back)</button>
+                    <button class="step-btn" id="nextBtn" onclick="nextStep()">Aage (Next) ➡</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>Best Wishes from Shahban Ali</p>
+        </div>
+    </div>
+
+    <script>
+        // COUNTDOWN TIMER LOGIC FOR 6TH OCTOBER
+        // Target Date: October 6 of the current year (or next year if Oct 6 already passed)
+        const now = new Date();
+        let targetYear = now.getFullYear();
+        let birthdayDate = new Date(`October 6, ${targetYear} 00:00:00`).getTime();
+        
+        if (now.getTime() > birthdayDate) {
+            targetYear += 1;
+            birthdayDate = new Date(`October 6, ${targetYear} 00:00:00`).getTime();
+        }
+
+        const timerInterval = setInterval(function() {
+            const currentTime = new Date().getTime();
+            const distance = birthdayDate - currentTime;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown-container").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                updateMessage();
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+
+        // NOTE: Testing option -> Agar aap khud abhi check karna chahte hain ki countdown ke baad kya khulta hai, toh upar wala `if (distance < 0)` wala check hata kar seedha `document.getElementById("main-content").style.display = "block";` kar sakte hain.
+
+        function cutCake() {
+            document.getElementById("cakeMessage").innerText = "🎉 Yay! Happy Birthday Rida! May all your goals and dreams come true! 🎂✨";
+        }
+
+        function popBalloon(element, msg) {
+            element.innerText = "💥";
+            document.getElementById("balloonMessage").innerText = msg;
+        }
+
+        // Step-by-Step Message Array
+        const messages = [
+            "Aerada to kch spical kar ny ko tha leqan as me mery muhbat hoty jo shayad ap ka birthady ka din kharab kar deta jo shayad ap ko pasand nah aata jis mesage as time likh raha ho jab ap se block website abee bana to raha ho ye b ni pata ye ap tak kase pochayo ga abee tak new numbers se mesage b ni kya as dar se k kai ap ny whatsapp he delete nah kar dy ho bs ap k birthady ky din ka antazar hai agar ap mery ye mesage par rai hai ya ap tak poch gya hai to yaqenan ap k aj birthady hai ya ya phar kch din guzar gaye hai ap k birthday ko 😌🚩 Many many returns of day happy birthday always b happy allah pak ap ko mery sary as aany waly sal k khoshiya dy ap ko or ap k gum ap se dur kar dy ni to mojy dy aamen.........",
+            "Hamesha khosh raho me ab ap ko ni kar ta mis bot masrof ho gya ho apny life me move on kar leya hai i hope apny b kya ho ga ni to kar ly ni pata mojy fark ap ka ya kisi k b hony ya nah hony se alone life sab ses best hai 😌🚩",
+            "Mera agar ap tak ye mesage pochaa to yehy last hai as k badd me kabii ni aayoya yehy ap k burthday ka gift hai 🎉🎊🎁\n\nI hope pasand aaye ga ap ko 😌🌚",
+            "Aik last mesage \nChoty se guzarish hai ap se mojy ni kar na as k bad thanks bolny ki zarorat ni hai jazakallah 🫠🚩🖤\n\nni fir ap ki jan ni choro ga 🌚",
+            "Chalo ab smile karo 😇 <br><br> <button id='smileBtn' onclick='smileClicked()' style='padding: 10px 25px; border-radius: 20px; border: none; color: white; font-weight: bold; font-size: 1.1rem; cursor: pointer;'>Smile ☺️</button>",
+            "Good 😊 <br><br> Allah hafiz for ever 😌"
+        ];
+
+        let currentStep = 0;
+
+        function updateMessage() {
+            const contentDiv = document.getElementById("msgContent");
+            const prevButton = document.getElementById("prevBtn");
+            const nextButton = document.getElementById("nextBtn");
+
+            contentDiv.innerHTML = messages[currentStep];
+
+            if (currentStep === 0) {
+                prevButton.style.display = "none";
+            } else {
+                prevButton.style.display = "block";
+            }
+
+            if (currentStep === 4) {
+                nextButton.style.display = "none";
+                setupRunawaySmile();
+            } else if (currentStep === 5) {
+                nextButton.style.display = "none";
+                prevButton.style.display = "none";
+            } else {
+                nextButton.style.display = "block";
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < messages.length - 1) {
+                currentStep++;
+                updateMessage();
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateMessage();
+            }
+        }
+
+        function smileClicked() {
+            currentStep++;
+            updateMessage();
+        }
+
+        function setupRunawaySmile() {
+            const btn = document.getElementById("smileBtn");
+            if (!btn) return;
+
+            const moveButton = () => {
+                const x = Math.random() * 200 - 100;
+                const y = Math.random() * 80 - 40;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            };
+
+            btn.addEventListener("mouseover", moveButton);
+            btn.addEventListener("click", moveButton);
+        }
+    </script>
+
+</body>
+</html>
